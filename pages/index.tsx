@@ -62,6 +62,7 @@ const Home = () => {
               <div className="w-full bg-white rounded-full flex">
                 {buttons.map((button) => (
                   <Button
+                  key={button.id}
                     label={button.label}
                     active={activeButton === button.label}
                     onClick={() => handleActive(button.label)}
