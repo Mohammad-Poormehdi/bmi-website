@@ -59,7 +59,7 @@ export default function Power(props: PowerProps) {
             );
           })}
         </g>
-        <g id="needle">
+        <g id="needle" className="transition-transform duration-300">
           <circle className="fill-gray-300" {...needle.base} r={12} />
           <circle className="fill-gray-700" {...needle.base} />
           <circle className="fill-gray-700" {...needle.tip} />
