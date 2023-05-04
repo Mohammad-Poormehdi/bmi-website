@@ -34,12 +34,12 @@ export default function Power(props: PowerProps) {
               <React.Fragment key={`tick-group-${angle}`}>
                 <line
                   className={cc([
-                    "stroke-gray-300",
+                    
                     {
-                      "stroke-cyan-500": asValue <= 18.5,
-                      "stroke-green-500": asValue >= 18.5 && asValue <= 25,
-                      "stroke-orange-500": asValue >= 25 && asValue <= 30,
-                      "stroke-red-500": asValue >= 30 && asValue <= 35,
+                      "stroke-cyan-500": asValue < 18.5,
+                      "stroke-green-500": asValue >= 18.5 && asValue < 25,
+                      "stroke-orange-500": asValue >= 25 && asValue < 30,
+                      "stroke-red-500": asValue >= 30 && asValue < 35,
                       "stroke-red-800": asValue >= 35 ,
                     }
                   ])}
