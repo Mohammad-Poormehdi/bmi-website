@@ -12,7 +12,7 @@ export default function Power(props: PowerProps) {
     domain: [0, 40],
     startAngle: 90,
     endAngle: 270,
-    numTicks: 30,
+    numTicks: 40,
     diameter: 200
   });
 
@@ -36,9 +36,9 @@ export default function Power(props: PowerProps) {
                   className={cc([
                     "stroke-gray-300",
                     {
-                      "stroke-yellow-300": asValue <= 18,
-                      "stroke-green-300": asValue >= 18 && asValue <= 30,
-                      "stroke-red-400": asValue >= 30
+                      "stroke-yellow-300": asValue <= 18.5,
+                      "stroke-green-300": asValue >= 18.5 && asValue <= 25,
+                      "stroke-red-400": asValue >= 25
                     }
                   ])}
                   strokeWidth={10}
