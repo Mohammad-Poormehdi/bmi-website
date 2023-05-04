@@ -27,7 +27,10 @@ const BMI = () => {
   const [status, setStatus] = useState("");
   const onCalculate = () => {
     let result = weight / (height / 100) ** 2;
-    setBMI(Number(result.toFixed(2)));
+    // setBMI(Number(result.toFixed(2)));
+    // setInterval(() => {
+    //     setBMI((value) => value + 1);
+    // }, 20);
     if (!height || !weight) {
       setStatus("لطفا اطلاعات را وارد کنید");
       return;
@@ -41,63 +44,70 @@ const BMI = () => {
     } else {
       setStatus("اضافه وزن");
     }
+    let currentBMI = 0;
+    const intervalId = setInterval(()=>{
+      currentBMI += 1
+      setBMI(currentBMI)
+      if (currentBMI >= result){
+        clearInterval(intervalId)
+      }
+    },40)
   };
   return (
     <>
-    <Head>
-      <title>سایت تست بی ام آی</title>
-      <meta name="description" content="محاسبه تست بی ام آی" />
-    </Head>
-        <Navbar />
-        <div className="flex justify-center items-center h-full pt-10 max-md:pt-0 max-md:block">
-          <div className="max-w-2xl bg-slate-100 rounded-2xl shadow-lg mx-auto p-5">
-            <div className="grid grid-cols-2 grid-rows-2 gap-5">
-              <Input
-                placeholder="قد"
-                type="number"
-                onChange={handleHeightChange}
-              />
-              <Input placeholder="سن" type="number" onChange={() => {}} />
-              <Input
-                placeholder="وزن"
-                type="number"
-                onChange={handleWeightChange}
-              />
-              <div className="w-full bg-white rounded-full flex">
-                {buttons.map((button) => (
-                  <Button
+      <Head>
+        <title>سایت تست بی ام آی</title>
+        <meta name="description" content="محاسبه تست بی ام آی" />
+      </Head>
+      <Navbar />
+      <div className="flex justify-center items-center h-full pt-10 max-md:pt-0 max-md:block">
+        <div className="max-w-2xl bg-slate-100 rounded-2xl shadow-lg mx-auto p-5">
+          <div className="grid grid-cols-2 grid-rows-2 gap-5">
+            <Input
+              placeholder="قد"
+              type="number"
+              onChange={handleHeightChange}
+            />
+            <Input placeholder="سن" type="number" onChange={() => {}} />
+            <Input
+              placeholder="وزن"
+              type="number"
+              onChange={handleWeightChange}
+            />
+            <div className="w-full bg-white rounded-full flex">
+              {buttons.map((button) => (
+                <Button
                   key={button.id}
-                    label={button.label}
-                    active={activeButton === button.label}
-                    onClick={() => handleActive(button.label)}
-                  />
-                ))}
-              </div>
-              <div className="col-span-2">
-                <Button label="محاسبه" onClick={onCalculate} active />
-              </div>
+                  label={button.label}
+                  active={activeButton === button.label}
+                  onClick={() => handleActive(button.label)}
+                />
+              ))}
             </div>
-            {/* speedometer */}
-            <div className="h-[300px] space-y-4 flex flex-col justify-center items-center ">
-              <Power value={BMI} />
-
-              <h1 className="text-center font-bold text-3xl">{BMI}</h1>
-              <h1
-                className={`text-center ${
-                  status === "کمبود وزن"
-                    ? "text-yellow-500"
-                    : status === "نرمال"
-                    ? "text-green-500"
-                    : "text-red-500"
-                } font-bold text-3xl`}
-              >
-                {status}
-              </h1>
+            <div className="col-span-2">
+              <Button label="محاسبه" onClick={onCalculate} active />
             </div>
-            <Description />
           </div>
-        </div>
+          {/* speedometer */}
+          <div className="h-[300px] space-y-4 flex flex-col justify-center items-center ">
+            <Power value={BMI} />
 
+            <h1 className="text-center font-bold text-3xl">{BMI}</h1>
+            <h1
+              className={`text-center ${
+                status === "کمبود وزن"
+                  ? "text-yellow-500"
+                  : status === "نرمال"
+                  ? "text-green-500"
+                  : "text-red-500"
+              } font-bold text-3xl`}
+            >
+              {status}
+            </h1>
+          </div>
+          <Description />
+        </div>
+      </div>
     </>
   );
 };
