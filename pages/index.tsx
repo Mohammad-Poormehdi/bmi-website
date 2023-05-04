@@ -4,6 +4,7 @@ import Input from "@/components/Input";
 import Navbar from "@/components/Navbar";
 import Power from "@/components/Speedometer";
 import cuid from "cuid";
+import Head from "next/head";
 import { ChangeEvent, useState } from "react";
 const buttons = [
   { id: cuid(), label: "مرد" },
@@ -43,6 +44,10 @@ const Home = () => {
   };
   return (
     <>
+    <Head>
+      <title>سایت تست بی ام آی</title>
+      <meta name="description" content="محاسبه تست بی ام آی" />
+    </Head>
         <Navbar />
         <div className="flex justify-center items-center h-full pt-10 max-md:pt-0 max-md:block">
           <div className="max-w-2xl bg-slate-100 rounded-2xl shadow-lg mx-auto p-5">
