@@ -11,8 +11,10 @@ const Home = ()=>{
     </Head>
         <div className="absolute inset-0 flex items-center justify-center">
             <div className="w-[600px] p-10 mx-auto space-y-6">
-                <h1 dir="rtl" className="text-4xl font-bold text-center ">به وبسایت HaDi BiGdEli خوش آمدید</h1>
-                <Button label="ورود به صفحه محاسبه BMI" active onClick={()=>router.push('/bmi')} />
+                <h1 dir="rtl" className="text-4xl font-bold text-center ">به سایت</h1>
+                <h1 dir="rtl" className="text-4xl font-bold text-center ">HaDi BiGdEli</h1>
+                <h1 dir="rtl" className="text-4xl font-bold text-center ">خوش آمدید</h1>
+                <Button label= "محاسبه شاخص توده بدنی" active onClick={()=>router.push('/bmi')} />
             </div>
         </div>
     </>

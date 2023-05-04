@@ -45,9 +45,11 @@ const BMI = () => {
       currentBMI += 1
       setBMI(currentBMI)
       if (currentBMI >= result){
+        setBMI(Number(result.toFixed(2)))
         clearInterval(intervalId)
       }
     },40)
+    
   };
   return (
     <>
