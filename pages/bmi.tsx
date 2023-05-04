@@ -4,6 +4,7 @@ import Input from "@/components/Input";
 import Navbar from "@/components/Navbar";
 import Power from "@/components/Speedometer";
 import cuid from "cuid";
+import { stat } from "fs";
 import Head from "next/head";
 import { ChangeEvent, useState } from "react";
 const buttons = [
@@ -37,8 +38,14 @@ const BMI = () => {
       setStatus("نرمال");
     } else if (Number.isNaN(result)) {
       setStatus("لطفا اطلاعات را وارد کنید");
-    } else {
+    } else if (result > 25 && result < 30) {
       setStatus("اضافه وزن");
+    }
+    else if (result > 30 && result < 35){
+      setStatus('چاقی')
+    }
+    else{
+      setStatus('چاقی شدید')
     }
     let currentBMI = 0;
     const intervalId = setInterval(()=>{
@@ -88,16 +95,20 @@ const BMI = () => {
           </div>
           {/* speedometer */}
           <div className="h-[300px] space-y-4 flex flex-col justify-center items-center ">
-            <Power value={BMI} />
+            <Power value={BMI > 40 ? 40 : BMI } />
 
             <h1 className="text-center font-bold text-3xl">{BMI}</h1>
             <h1
               className={`text-center ${
                 status === "کمبود وزن"
-                  ? "text-yellow-500"
+                  ? "text-cyan-500"
                   : status === "نرمال"
                   ? "text-green-500"
-                  : "text-red-500"
+                  : status === 'اضافه وزن'
+                  ? 'text-orange-500'
+                  : status == 'چاقی'
+                  ? 'text-red-500'
+                  : 'text-red-800'
               } font-bold text-3xl`}
             >
               {status}

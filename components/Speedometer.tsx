@@ -36,9 +36,11 @@ export default function Power(props: PowerProps) {
                   className={cc([
                     "stroke-gray-300",
                     {
-                      "stroke-yellow-300": asValue <= 18.5,
-                      "stroke-green-300": asValue >= 18.5 && asValue <= 25,
-                      "stroke-red-400": asValue >= 25
+                      "stroke-cyan-500": asValue <= 18.5,
+                      "stroke-green-500": asValue >= 18.5 && asValue <= 25,
+                      "stroke-orange-500": asValue >= 25 && asValue <= 30,
+                      "stroke-red-500": asValue >= 30 && asValue <= 35,
+                      "stroke-red-800": asValue >= 35 ,
                     }
                   ])}
                   strokeWidth={10}
