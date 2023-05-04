@@ -11,7 +11,7 @@ const Home = () => {
         <meta name="description" content="سایت هادی بیگدلی" />
       </Head>
       <div className=" py-40">
-        <div className="text-center max-w-2xl mx-auto font-bold space-y-20 px-10 ">
+        <div className="text-center max-w-2xl mx-auto font-bold space-y-32 px-10 ">
           <div className="text-4xl space-y-3">
             <p>به سایت</p>
             <p>Hadi BiGdEli</p>
