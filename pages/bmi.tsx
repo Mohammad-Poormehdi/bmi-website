@@ -27,10 +27,6 @@ const BMI = () => {
   const [status, setStatus] = useState("");
   const onCalculate = () => {
     let result = weight / (height / 100) ** 2;
-    // setBMI(Number(result.toFixed(2)));
-    // setInterval(() => {
-    //     setBMI((value) => value + 1);
-    // }, 20);
     if (!height || !weight) {
       setStatus("لطفا اطلاعات را وارد کنید");
       return;
@@ -56,7 +52,7 @@ const BMI = () => {
   return (
     <>
       <Head>
-        <title>سایت تست بی ام آی</title>
+        <title>سایت محاسبه بی ام آی</title>
         <meta name="description" content="محاسبه تست بی ام آی" />
       </Head>
       <Navbar />
