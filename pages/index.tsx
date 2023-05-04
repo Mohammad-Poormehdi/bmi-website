@@ -43,9 +43,8 @@ const Home = () => {
   };
   return (
     <>
-      <div className="absolute inset-0 ">
         <Navbar />
-        <div className="flex justify-center items-center h-full max-md:block">
+        <div className="flex justify-center items-center h-full pt-10 max-md:pt-0 max-md:block">
           <div className="max-w-2xl bg-slate-100 rounded-2xl shadow-lg mx-auto p-5">
             <div className="grid grid-cols-2 grid-rows-2 gap-5">
               <Input
@@ -93,7 +92,7 @@ const Home = () => {
             <Description />
           </div>
         </div>
-      </div>
+
     </>
   );
 };
